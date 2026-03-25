@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dodge AI - Context Graph</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+</head>
+<body>
+    <div class="header">
+        <h2>Mapping / Order to Cash</h2>
+    </div>
+    
+    <div class="main-container">
+        <div class="graph-container">
+            <div id="network-graph"></div>
+            
+            <div id="node-popup" class="hidden">
+                <div class="popup-header">
+                    <h3 id="popup-title">Node details</h3>
+                    <button onclick="closePopup()">x</button>
+                </div>
+                <div id="popup-content"></div>
+                <button id="expand-btn" class="action-btn">Expand Node Connections</button>
+            </div>
+        </div>
+        
+        <div class="chat-container">
+            <div class="chat-header">
+                <h3>Chat with Graph</h3>
+                <p>Order to Cash</p>
+            </div>
+            
+            <div class="chat-history" id="chat-history">
+                <div class="message system-msg">
+                    <div class="avatar">D</div>
+                    <div class="text">Hi! I can help you analyze the Order to Cash process.</div>
+                </div>
+            </div>
+            
+            <div class="chat-input-area">
+                <input type="text" id="chat-input" placeholder="Analyze anything (e.g., Which products are associated with the highest number of billing documents?)">
+                <button id="send-btn">Send</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
