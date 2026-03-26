@@ -2,7 +2,7 @@
 
 [![Python 3.9+](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://www.python.org/)
 [![Google Gemini Pro 1.5](https://img.shields.io/badge/LLM-Gemini_Pro_1.5-orange.svg)](https://ai.google.dev/)
-[![FastAPIu(https://img.shields.io/badge/Framework-FastAPI-009688.svg?logo=fastapi)](https://fastapi.tiangolo.com/)
+[![FastAPI](https://img.shields.io/badge/Framework-FastAPI-009688.svg?logo=fastapi)](https://fastapi.tiangolo.com/)
 [![SQLite](https://img.shields.io/badge/Database-SQLite-003B57.svg?logo=sqlite)](https://sqlite.org/)
 
 > **A production-ready Enterprise Knowledge Graph & LLM Engine** transforming complex, globally distributed SAP Order-to-Cash (O2C) logistics data into conversational, instantly accessible supply chain intelligence.
