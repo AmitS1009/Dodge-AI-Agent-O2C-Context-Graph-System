@@ -18,24 +18,24 @@ Our custom Graph Abstraction Layer resolves relationships between `SalesOrders`,
 
 ```mermaid
 graph TD
-    #% User Interaction
+    %% User Interaction
     User[User natural language query] -->|HTTP / API| FastAPI[FastAPI Backend]
     
-    #% Backend LLM Logic
+    %% Backend LLM Logic
     FastAPI --> LLMProxy[LLM Orchestrator<br>Gemini Pro 1.5]
     LLMProxy -.->|Check Guardrails| TopicFilter{Topic Validation}
     TopicFilter -->|REJECT| Error[Halt & Return Guardrail msg]
     TopicFilter -->|PASS| SQLGen[Schema-aware SQL Translator]
     
-    #% Data Pipeline
+    %% Data Pipeline
     JSONL[(SAP JSONL Data<br>Millions of Rows)] -->|Parser: build_db.py| SQLite[(SQLite O2C Database)]
     
-    #% Execution & UI
+    %% Execution & UI
     SQLGen -->|Executes SQLite Query| SQLite
     SQLite -->|Raw Result| LLMProxy
     LLMProxy -->|Synthesize Natural Lang| User
     
-    #% Graph Vis
+    %% Graph Vis
     SQLite -->|Graph Resolvers: graph.py| VisJS{{Vis.js Visualizer}}
     VisJS -->|Interactive topology| User
 ```
