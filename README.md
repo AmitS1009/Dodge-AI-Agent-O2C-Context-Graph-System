@@ -14,9 +14,9 @@
 
 ## 🏗️ System Architecture
 
-Our custom Graph Abstraction Layer resolves relationships between \SalesOrders\, \Deliveries\, \Billings\, and \JournalEntries\ on-the-fly, serving interactive topological maps via Vis.js.
+Our custom Graph Abstraction Layer resolves relationships between SalesOrders, Deliveries, Billings, and JournalEntries on-the-fly, serving interactive topological maps via Vis.js.
 
-\\\mermaid
+`mermaid
 graph TD
     %% User Interaction
     User[User natural language query] -->|HTTP / API| FastAPI[FastAPI Backend]
@@ -38,32 +38,32 @@ graph TD
     %% Graph Vis
     SQLite -->|Graph Resolvers: graph.py| VisJS{{Vis.js Visualizer}}
     VisJS -->|Interactive topology| User
-\\\
+`
 
 ## 🧠 Core Engineering Principles
 
 1.  **Lightweight & Zero-Config:** Eschewed heavy graph-native DBs (like Neo4j) for embedded **SQLite + Dynamic Graph Abstraction**, delivering instantaneous local deployment without infrastructural bloat.
-2.  **RAG meets Graph:** Fuses generative intelligence with strict referential data validation. The LLM acts purely as a linguistic to logical-SQL compiler (\	ext2sql\).
-3.  **Strict Security Guardrails:** Model input and output are sandboxed to specific logistics domains (O2C). Out-of-bounds queries immediately hit a hard \REJECT\ boundary.
-4.  **Performant Data Ingestion:** Vectorized \Pandas\ parsers seamlessly join & commit disjointed temporal partitions into highly indexed, relational tables.
+2.  **RAG meets Graph:** Fuses generative intelligence with strict referential data validation. The LLM acts purely as a linguistic to logical-SQL compiler (	ext2sql).
+3.  **Strict Security Guardrails:** Model input and output are sandboxed to specific logistics domains (O2C). Out-of-bounds queries immediately hit a hard REJECT boundary.
+4.  **Performant Data Ingestion:** Vectorized Pandas parsers seamlessly join & commit disjointed temporal partitions into highly indexed, relational tables.
 
 ---
 
 ## ⚙️ Quick Start
 
-**Prerequisites**: Python 3.9+ | \.env\ file containing \GEMINI_API_KEY=your_key\ | Unzipped \sap-o2c-data\ directory.
+**Prerequisites**: Python 3.9+ | .env file containing GEMINI_API_KEY=your_key | Unzipped sap-o2c-data directory.
 
 ### 1. Build the Engine
-\\\ash
+`ash
 python -m venv venv
 .\venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 python src/build_db.py
-\\\
+`
 *(Automated ETL pipeline ingesting distributed JSONL payloads into normalized SQL tables).*
 
 ### 2. Ignite the Server
-\\\ash
+`ash
 python -m uvicorn src.main:app --host 0.0.0.0 --port 8000
-\\\
-**Access the interface at** \http://localhost:8000\ to interact with the LLM data copilot and visualize the supply chain context graph.
+`
+**Access the interface at** http://localhost:8000 to interact with the LLM data copilot and visualize the supply chain context graph.
